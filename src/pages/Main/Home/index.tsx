@@ -82,7 +82,7 @@ const Home: React.FC = () => {
     setIsLoading(false);
     setSummary(data);
 
-    localStorage.setItem(`${keySuffix}:summary`, JSON.stringify(data));
+    localStorage.setItem(`${keySuffix}:@summary`, JSON.stringify(data));
   }, [cost, password, username]);
 
   const handleUpdate = useCallback(async () => {
