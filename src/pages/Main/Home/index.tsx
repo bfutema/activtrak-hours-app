@@ -110,10 +110,10 @@ const Home: React.FC = () => {
       billing: 0,
       billingFormatted: '',
       goal: {
-        hours: '',
-        workingHours: '',
-        missing: '',
-        ahead: '',
+        hours: 'Carregando...',
+        workingHours: 'Carregando...',
+        missing: 'Carregando...',
+        ahead: 'Carregando...',
       },
     });
 
@@ -182,7 +182,7 @@ const Home: React.FC = () => {
           {isLoading ? 'Atualizando...' : 'Atualizar'}
         </button>
 
-        <button type="button" onClick={handleLogout}>
+        <button type="button" onClick={handleLogout} disabled={isLoading}>
           Sair
         </button>
       </Summary>
