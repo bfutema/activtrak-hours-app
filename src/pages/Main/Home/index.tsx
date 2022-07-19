@@ -40,7 +40,11 @@ interface ISummary {
 const Home: React.FC = () => {
   const keySuffix = 'activtrak#devstream';
 
-  const [summary, setSummary] = useState<ISummary>();
+  const [summary, setSummary] = useState<ISummary | undefined>(() => {
+    const founded = localStorage.getItem(`${keySuffix}:summary`);
+
+    return founded ? JSON.parse(founded) : undefined;
+  });
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [username, setUsername] = useState<string | undefined>(() => {
     const founded = localStorage.getItem(`${keySuffix}:@username`);
@@ -77,6 +81,8 @@ const Home: React.FC = () => {
 
     setIsLoading(false);
     setSummary(data);
+
+    localStorage.setItem(`${keySuffix}:summary`, JSON.stringify(data));
   }, [cost, password, username]);
 
   const handleUpdate = useCallback(async () => {
