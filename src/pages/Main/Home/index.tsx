@@ -126,6 +126,7 @@ const Home: React.FC = () => {
     localStorage.removeItem(`${keySuffix}:@username`);
     localStorage.removeItem(`${keySuffix}:@password`);
     localStorage.removeItem(`${keySuffix}:@cost`);
+    localStorage.removeItem(`${keySuffix}:@summary`);
   }, []);
 
   const handleSubmit = useCallback(
