@@ -148,6 +148,12 @@ const Home: React.FC = () => {
     [cost, handleSearch, password, username],
   );
 
+  const normalizeHours = (hours: string) => {
+    const array = hours.split(':');
+
+    return `${array[0]}:${array[1]}:${array[2].substring(0, 2)}`;
+  };
+
   if (summary && username && password && cost) {
     return (
       <Summary>
@@ -155,22 +161,22 @@ const Home: React.FC = () => {
 
         <div>
           <strong>Meta de horas trabalhadas: </strong>
-          <span>{summary?.goal.hours}</span>
+          <span>{normalizeHours(summary?.goal.hours)}</span>
         </div>
 
         <div>
           <strong>Horas trabalhadas: </strong>
-          <span>{summary?.goal.workingHours}</span>
+          <span>{normalizeHours(summary?.goal.workingHours)}</span>
         </div>
 
         <div>
           <strong>Horas atrás da meta: </strong>
-          <span>{summary?.goal.missing}</span>
+          <span>{normalizeHours(summary?.goal.missing)}</span>
         </div>
 
         <div>
           <strong>Horas á frente da meta: </strong>
-          <span>{summary?.goal.ahead}</span>
+          <span>{normalizeHours(summary?.goal.ahead)}</span>
         </div>
 
         <div>
