@@ -151,7 +151,11 @@ const Home: React.FC = () => {
   const normalizeHours = (hours: string) => {
     const array = hours.split(':');
 
-    return `${array[0]}:${array[1]}:${array[2].substring(0, 2)}`;
+    if (array.length === 3) {
+      return `${array[0]}:${array[1]}:${array[2].substring(0, 2)}`;
+    }
+
+    return hours;
   };
 
   if (summary && username && password && cost) {
