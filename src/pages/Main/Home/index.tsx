@@ -82,6 +82,7 @@ const Home: React.FC = () => {
     setIsLoading(false);
     setSummary(data);
 
+    localStorage.removeItem(`${keySuffix}:@summary`);
     localStorage.setItem(`${keySuffix}:@summary`, JSON.stringify(data));
   }, [cost, password, username]);
 
